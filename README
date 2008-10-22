@@ -1,3 +1,5 @@
 = Top Level Page
 
 This Radiant CMS extension changes the top level page of a user.
+
+Insertion of top level page selector into User form in Admin UI accomplished via instructions at: http://github.com/saturnflyer/radiant-help-extension/tree/master/HELP_developer.rdoc (thanks saturflyer).

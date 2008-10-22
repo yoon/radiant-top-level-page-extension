@@ -1,0 +1,8 @@
+%tr
+  %th.label
+    %label{:for=>"user_top_level_page"} Top Level Page
+  %td.field
+    - if (top_level_page_migrated = current_user.attributes.has_key?('page_id'))
+      = select "user", "page_id", Page.find_by_parent_id(nil).map_descendants_for_select, :include_blank=>true
+  %td.help
+    = top_level_page_migrated ? "Optional. Top level page for this user." : "Run rake radiant:extensions:top_level_page:migrate RAILS_ENV=#{RAILS_ENV}"

@@ -2,7 +2,7 @@ require_dependency 'application'
 class TopLevelPageExtension < Radiant::Extension
   version "0.2"
   description "This extension changes the top level page of a user from the home page to a page of the administrator's choosing."
-  url "git://github.com/yoon/radiant-top-level-page-extension.git"
+  url "http://github.com/yoon/radiant-top-level-page-extension"
   
   define_routes do |map|
     # # Admin Routes
@@ -24,9 +24,11 @@ class TopLevelPageExtension < Radiant::Extension
   def activate
     Admin::PageController.class_eval do
       def index
-        @homepage = current_user.page_id ? Page.find(user.page_id) : Page.find_by_parent_id(nil)
+        @homepage = current_user.attributes.has_key?('page_id') ? Page.find_by_id(current_user.page_id) || Page.find_by_parent_id(nil) : Page.find_by_parent_id(nil)
       end
     end
+    Page.send :include, PageExtensions
+    admin.user.edit.add :form, "edit_top_level_page", :before => "edit_notes"
   end
   
   def deactivate
