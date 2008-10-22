@@ -3,3 +3,13 @@
 This Radiant CMS extension changes the top level page of a user.
 
 Insertion of top level page selector into User form in Admin UI accomplished via instructions at: http://github.com/saturnflyer/radiant-help-extension/tree/master/HELP_developer.rdoc (thanks saturflyer).
+
+Install
+
+$ cd radiant_app_directory
+$ git clone git://github.com/yoon/radiant-top-level-page-extension.git vendor/extensions/top_level_page
+$ rake radiant:extensions:top_level_page:migrate RAILS_ENV=[development|production]
+
+TODO
+
+Figure out how to spec this extension
