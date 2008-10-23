@@ -22,12 +22,8 @@ class TopLevelPageExtension < Radiant::Extension
   end  
   
   def activate
-    Admin::PageController.class_eval do
-      def index
-        @homepage = current_user.attributes.has_key?('page_id') ? Page.find_by_id(current_user.page_id) || Page.find_by_parent_id(nil) : Page.find_by_parent_id(nil)
-      end
-    end
-    Page.send :include, PageExtensions
+    Admin::PageController.send :include, TopLevelPage::PageControllerExtensions
+    Page.send :include, TopLevelPage::PageExtensions
     admin.user.edit.add :form, "edit_top_level_page", :before => "edit_notes"
   end
   
