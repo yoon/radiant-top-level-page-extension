@@ -5,9 +5,6 @@ module TopLevelPage::PageControllerExtensions
     }
   end
   
-  def index
-    @homepage = current_user.attributes.has_key?('page_id') ? Page.find_by_id(current_user.page_id) || Page.find_by_parent_id(nil) : Page.find_by_parent_id(nil)
-  end
   def index_with_top_level_page
     if current_user.attributes.has_key?('page_id')
       if (top_level_page = Page.find_by_id(current_user.page_id))
