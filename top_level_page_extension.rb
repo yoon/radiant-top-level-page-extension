@@ -22,7 +22,7 @@ class TopLevelPageExtension < Radiant::Extension
   end  
   
   def activate
-    Admin::PageController.send :include, TopLevelPage::PageControllerExtensions
+    Admin::PagesController.send :include, TopLevelPage::PagesControllerExtensions
     Page.send :include, TopLevelPage::PageExtensions
     admin.user.edit.add :form, "edit_top_level_page", :before => "edit_notes"
   end

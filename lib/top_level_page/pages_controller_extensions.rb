@@ -1,4 +1,4 @@
-module TopLevelPage::PageControllerExtensions
+module TopLevelPage::PagesControllerExtensions
   def self.included(base)
     base.class_eval {
       alias_method_chain :index, :top_level_page
