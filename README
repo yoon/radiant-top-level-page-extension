@@ -10,6 +10,11 @@ $ cd radiant_app_directory
 $ git clone git://github.com/yoon/radiant-top-level-page-extension.git vendor/extensions/top_level_page
 $ rake radiant:extensions:top_level_page:migrate RAILS_ENV=[development|production]
 
+Updates
+
+Updated for Radiant 0.7.0 PageController => PagesController, UserController => UsersController
+Use branch 0.6 for Radiant 0.7.1
+
 TODO
 
 Figure out how to spec this extension
