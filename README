@@ -12,8 +12,7 @@ $ rake radiant:extensions:top_level_page:migrate RAILS_ENV=[development|producti
 
 Updates
 
-Updated for Radiant 0.7.0 PageController => PagesController, UserController => UsersController
-Use branch 0.6 for Radiant 0.7.1
+Updated for Radiant 0.8 by seancribbs
 
 TODO
 
