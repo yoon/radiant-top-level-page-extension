@@ -9,6 +9,7 @@ module TopLevelPage::PagesControllerExtensions
     if current_user.attributes.has_key?('page_id')
       if (top_level_page = Page.find_by_id(current_user.page_id))
         @homepage = top_level_page
+        response_for :plural
       else
         index_without_top_level_page
       end
