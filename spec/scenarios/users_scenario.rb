@@ -1,7 +1,7 @@
 class TopLevelPageUsersScenario < Scenario::Base
   
   def load
-    create_user "TopLevelSet", :page_id => page_id("Child")
+    create_user "TopLevelSet", :top_level_page_id => page_id("Child")
     create_user "TopLevelNil"
     create_user "Admin", :admin => true
     create_user "Developer", :developer => true

@@ -2,7 +2,7 @@ class TopLevelPageUsersScenario < Scenario::Base
   # uses :users
   
   def load
-    create_user "TopLevelSet", :page_id => Page.find_by_title("Child").id
+    create_user "TopLevelSet", :top_level_page_id => Page.find_by_title("Child").id
     create_user "TopLevelNil"
   end
   
